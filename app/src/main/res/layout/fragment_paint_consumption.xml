@@ -18,7 +18,7 @@
         android:id="@+id/paintConsumption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Расход краски мл/м2"/>
+        android:hint="Расход краски мл/м²"/>
     <!-- Поле количество слоёв -->
     <EditText
         android:id="@+id/numberOfLayers"
@@ -61,7 +61,7 @@
     <!-- Кнопка "Рассчитать" -->
 
     <Button
-        android:id="@+id/calculateButton"
+        android:id="@+id/calculateButtons"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Рассчитать"
@@ -74,32 +74,31 @@
         android:id="@+id/square"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Площадь поверхности: "
+        android:text="Площадь поверхности м²: "
         android:padding="8dp"/>
 
     <!-- TextView для числа площади поверхности -->
-
     <TextView
-        android:id="@+id/costSquareInt"
+        android:id="@+id/squareNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 м2"
+        android:text=""
         android:padding="8dp"/>
 
     <!-- Надпись "Объём затраченной краски -->
     <TextView
-        android:id="@+id/VolumeOfPaint"
+        android:id="@+id/volumeOfPaint"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Объём затраченной краски: "
+        android:text="Объём затраченной краски в мл: "
         android:padding="8dp"/>
 
     <!-- TextView для числа объёма краски -->
     <TextView
-        android:id="@+id/VolumeOfPaintInt"
+        android:id="@+id/volumeOfPaintInt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 л"
+        android:text=""
         android:padding="8dp"/>
     <!-- Надпись "Количество банок краски" -->
     <TextView
@@ -114,18 +113,15 @@
         android:id="@+id/countOfValuesInt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 шт"
+        android:text=""
         android:padding="8dp"/>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
+
     <!-- Надпись "Стоимость за 1 м2 (руб.)" -->
     <TextView
         android:id="@+id/costPerM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Стоимость за 1 м2: "
+        android:text="Стоимость за 1 м2 руб: "
         android:padding="8dp"/>
 
     <!-- TextView для числа стоимости за 1м2 -->
@@ -133,7 +129,7 @@
         android:id="@+id/costPerMInt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 руб"
+        android:text=""
         android:padding="8dp"/>
     <!-- Надпись "Итоговая цена за краску" -->
 
@@ -148,14 +144,13 @@
             android:padding="8dp"/>
 
         <!-- TextView для числа итоговой цены за краску -->
-        <TextView
-            android:id="@+id/textRollsCountValue"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="0 руб"
-            android:padding="8dp"
-            android:layout_weight="1"/>
+    <TextView
+        android:id="@+id/totalCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:text="" />
 
-    </LinearLayout>
 
 </LinearLayout>
