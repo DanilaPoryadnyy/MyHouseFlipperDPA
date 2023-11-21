@@ -18,6 +18,4 @@
         android:layout_centerHorizontal="true"
         android:text="Косметическая отделка" />
 
-
-
 </RelativeLayout>

@@ -42,7 +42,7 @@ public class MainFragment extends Fragment {
                 loadPaintConsumptionFragment();
                 return true;
             } else if (itemId == R.id.primer_consumption) {
-                // Do something else for another material option
+                loadPrimerConsumptionFragment(); // Загрузка фрагмента "Расход грунтовки"
                 return true;
             } else {
                 return false;
@@ -93,5 +93,13 @@ public class MainFragment extends Fragment {
                 .addToBackStack(null) // Добавить в Back Stack, если нужно
                 .commit();
     }
+
+    private void loadPrimerConsumptionFragment() {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new PrimerConsumptionFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
 
 }

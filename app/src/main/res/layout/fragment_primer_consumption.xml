@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Надпись "Грунтовка" -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Грунтовка"
+        android:textSize="24sp"
+        android:layout_margin="16dp"/>
+
+    <!-- Поле для расхода -->
+    <EditText
+        android:id="@+id/editTextPrimerConsumption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Расход грунтовки (кг/м²*мм)"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <!-- Поле для количества слоев -->
+    <EditText
+        android:id="@+id/editTextLayerCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Количество слоев"
+        android:inputType="number"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <!-- Поле для толщины слоя -->
+    <EditText
+        android:id="@+id/editTextLayerThickness"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Толщина слоя (мм)"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <!-- Надпись "Размер поверхности" -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размер поверхности"
+        android:textSize="20sp"
+        android:layout_margin="16dp"/>
+
+    <!-- Поля для длины и ширины -->
+    <EditText
+        android:id="@+id/editTextLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Длина"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <EditText
+        android:id="@+id/editTextWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ширина"
+        android:inputType="numberDecimal"
+        android:padding="8dp"
+        android:layout_margin="8dp"/>
+
+    <!-- Кнопка "Рассчитать" -->
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"
+        android:layout_margin="16dp"/>
+
+    <!-- Надпись "Результат" -->
+    <TextView
+        android:id="@+id/resultTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результат"
+        android:textSize="20sp"
+        android:layout_margin="16dp"/>
+    <!-- Надпись "Площадь поверхности" -->
+
+    <TextView
+        android:id="@+id/squarePrimer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Площадь обрабатываемой поверхности м²: "
+        android:padding="8dp"/>
+
+    <!-- TextView для числа площади поверхности -->
+    <TextView
+        android:id="@+id/squarePrimerNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="8dp"/>
+
+    <!-- Надпись Расход материалов на 1м2 -->
+    <TextView
+        android:id="@+id/countPrimerM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Расход материалов на м²: "
+        android:padding="8dp"/>
+    <TextView
+        android:id="@+id/countPrimerMNum"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:padding="8dp"/>
+
+</LinearLayout>

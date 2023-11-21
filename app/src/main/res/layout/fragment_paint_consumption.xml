@@ -127,7 +127,7 @@
         android:id="@+id/costPerM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Стоимость за 1 м2 руб: "
+        android:text="Стоимость за 1 м² руб: "
         android:padding="8dp"/>
 
     <!-- TextView для числа стоимости за 1м2 -->
