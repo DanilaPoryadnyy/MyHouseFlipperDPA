@@ -28,6 +28,7 @@ public class WallpaperFragment extends Fragment {
 
         Button calculateButton = view.findViewById(R.id.calculateButton);
         calculateButton.setOnClickListener(v -> {
+            try {
             // Получаем значения из полей ввода
             double width = Double.parseDouble(widthRoll.getText().toString());
             double length = Double.parseDouble(lengthRoll.getText().toString());
@@ -45,6 +46,10 @@ public class WallpaperFragment extends Fragment {
 
             TextView totalCostView = view.findViewById(R.id.textTotalCostValue);
             totalCostView.setText(String.format("%.2f руб", totalCost));
+            } catch (NumberFormatException e) {
+                // Обработка ошибки при неверном формате числа
+                // Введите корректные данные
+            }
         });
 
         return view;

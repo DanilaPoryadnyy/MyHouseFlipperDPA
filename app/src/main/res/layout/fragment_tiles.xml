@@ -20,12 +20,14 @@
         android:id="@+id/editTextTileLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Длина в см"/>
 
     <EditText
         android:id="@+id/editTextTileWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Ширина в см"/>
 
     <TextView
@@ -38,12 +40,14 @@
         android:id="@+id/editTextSurfaceLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Длина в см"/>
 
     <EditText
         android:id="@+id/editTextSurfaceWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Ширина в см"/>
 
     <Button

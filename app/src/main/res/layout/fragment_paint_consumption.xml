@@ -18,12 +18,14 @@
         android:id="@+id/paintConsumption"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Расход краски мл/м²"/>
     <!-- Поле количество слоёв -->
     <EditText
         android:id="@+id/numberOfLayers"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Количество слоёв"/>
 
     <!-- Надпись посередине "Размеры поверхности" -->
@@ -38,24 +40,28 @@
         android:id="@+id/length"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Длина в см"/>
 
     <EditText
         android:id="@+id/width"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Ширина в см"/>
 
     <EditText
         android:id="@+id/capacityVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Объём банки в мл"/>
 
     <EditText
         android:id="@+id/costVolume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
         android:hint="Стоимость банки (рублей)"/>
 
     <!-- Кнопка "Рассчитать" -->

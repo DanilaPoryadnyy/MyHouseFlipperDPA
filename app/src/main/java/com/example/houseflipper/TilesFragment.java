@@ -62,6 +62,7 @@ public class TilesFragment extends Fragment {
 
     private void calculateTiles() {
         // Получение данных из EditText
+        try {
         double lengthTile = parseDouble(lengthTileEditText.getText().toString()) / 100; // см в метры
         double widthTile = parseDouble(widthTileEditText.getText().toString()) / 100; // см в метры
         double lengthSurface = parseDouble(lengthSurfaceEditText.getText().toString()) / 100; // см в метры
@@ -79,6 +80,10 @@ public class TilesFragment extends Fragment {
         // Обновление TextView
         textSurfaceArea.setText(String.format("%.2f", surfaceArea));
         textTileCount.setText(String.valueOf(tileCount));
+        } catch (NumberFormatException e) {
+            // Обработка ошибки при неверном формате числа
+            // Введите корректные данные
+        }
     }
 
     private double parseDouble(String value) {
