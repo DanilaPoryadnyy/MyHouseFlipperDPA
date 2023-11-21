@@ -25,8 +25,31 @@ public class MainFragment extends Fragment {
         Button decorationButton = view.findViewById(R.id.decoration_button);
         decorationButton.setOnClickListener(v -> showPopupMenu(decorationButton));
 
-        //44
+        Button materialsButton = view.findViewById(R.id.materials_button);
+        materialsButton.setOnClickListener(v -> showMaterialsMenu(materialsButton));
+
         return view;
+    }
+
+    private void showMaterialsMenu(View view) {
+        PopupMenu popupMenu = new PopupMenu(requireContext(), view);
+        popupMenu.getMenuInflater().inflate(R.menu.materials_menu, popupMenu.getMenu());
+
+        popupMenu.setOnMenuItemClickListener(item -> {
+            int itemId = item.getItemId();
+            // Handle menu item clicks here
+            if (itemId == R.id.paint_consumption) {
+                loadPaintConsumptionFragment();
+                return true;
+            } else if (itemId == R.id.primer_consumption) {
+                // Do something else for another material option
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        popupMenu.show();
     }
 
     private void showPopupMenu(View view) {
@@ -47,6 +70,13 @@ public class MainFragment extends Fragment {
         });
 
         popupMenu.show();
+    }
+
+    private void loadPaintConsumptionFragment() {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new PaintConsumptionFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
 

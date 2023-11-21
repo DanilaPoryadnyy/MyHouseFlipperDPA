@@ -1,0 +1,161 @@
+<!-- fragment_paint_consumption.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Надпись "Краска" сверху посередине -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Краска"
+        android:textSize="24sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Поле "Расход краски мл/м2" -->
+    <EditText
+        android:id="@+id/paintConsumption"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Расход краски мл/м2"/>
+    <!-- Поле количество слоёв -->
+    <EditText
+        android:id="@+id/numberOfLayers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Количество слоёв"/>
+
+    <!-- Надпись посередине "Размеры поверхности" -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размеры поверхности"
+        android:textSize="24sp" />
+
+    <!-- Поля "Длина в см", "Ширина в см", "Объём банки в мл", "Стоимость банки в руб" -->
+    <EditText
+        android:id="@+id/length"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Длина в см"/>
+
+    <EditText
+        android:id="@+id/width"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ширина в см"/>
+
+    <EditText
+        android:id="@+id/capacityVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Объём банки в мл"/>
+
+    <EditText
+        android:id="@+id/costVolume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Стоимость банки (рублей)"/>
+
+    <!-- Кнопка "Рассчитать" -->
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"
+        android:layout_gravity="center"
+        android:padding="16dp"/>
+
+    <!-- Надпись "Площадь поверхности" -->
+
+    <TextView
+        android:id="@+id/square"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Площадь поверхности: "
+        android:padding="8dp"/>
+
+    <!-- TextView для числа площади поверхности -->
+
+    <TextView
+        android:id="@+id/costSquareInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 м2"
+        android:padding="8dp"/>
+
+    <!-- Надпись "Объём затраченной краски -->
+    <TextView
+        android:id="@+id/VolumeOfPaint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Объём затраченной краски: "
+        android:padding="8dp"/>
+
+    <!-- TextView для числа объёма краски -->
+    <TextView
+        android:id="@+id/VolumeOfPaintInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 л"
+        android:padding="8dp"/>
+    <!-- Надпись "Количество банок краски" -->
+    <TextView
+        android:id="@+id/countOfValues"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Количество банок краски: "
+        android:padding="8dp"/>
+    <!-- TextView для числа банок краски -->
+
+    <TextView
+        android:id="@+id/countOfValuesInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 шт"
+        android:padding="8dp"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+    <!-- Надпись "Стоимость за 1 м2 (руб.)" -->
+    <TextView
+        android:id="@+id/costPerM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Стоимость за 1 м2: "
+        android:padding="8dp"/>
+
+    <!-- TextView для числа стоимости за 1м2 -->
+    <TextView
+        android:id="@+id/costPerMInt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 руб"
+        android:padding="8dp"/>
+    <!-- Надпись "Итоговая цена за краску" -->
+
+        <!-- ... Ваша существующая разметка ... -->
+
+        <!-- Надпись "Итоговая цена за краску" -->
+        <TextView
+            android:id="@+id/textRollsCountLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Итого за краску:"
+            android:padding="8dp"/>
+
+        <!-- TextView для числа итоговой цены за краску -->
+        <TextView
+            android:id="@+id/textRollsCountValue"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="0 руб"
+            android:padding="8dp"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</LinearLayout>
