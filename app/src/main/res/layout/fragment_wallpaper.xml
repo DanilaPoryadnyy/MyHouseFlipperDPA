@@ -1,0 +1,99 @@
+<!-- fragment_wallpaper.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Параметры рулона"
+        android:textSize="20sp"
+        android:padding="8dp"/>
+
+    <!-- Поля для параметров рулона -->
+    <EditText
+        android:id="@+id/editWidthRoll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ширина рулона в метрах"
+        android:inputType="numberDecimal"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/editLengthRoll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Длина рулона в метрах"
+        android:inputType="numberDecimal"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/editCostRoll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Стоимость одного рулона в рублях"
+        android:inputType="numberDecimal"
+        android:padding="8dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размеры стен"
+        android:textSize="20sp"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/editWidthWalls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Суммарная ширина стен в метрах"
+        android:inputType="numberDecimal"
+        android:padding="8dp"/>
+
+    <EditText
+        android:id="@+id/editHeightWalls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Высота стен в метрах"
+        android:inputType="numberDecimal"
+        android:padding="8dp"/>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"
+        android:layout_gravity="center"
+        android:padding="16dp"/>
+
+
+    <TextView
+        android:id="@+id/textRollsCountLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Количество рулонов: "
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textRollsCountValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 руб"
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textTotalCostLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Суммарная стоимость: "
+        android:padding="8dp"/>
+
+    <TextView
+        android:id="@+id/textTotalCostValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 руб"
+        android:padding="8dp"/>
+
+</LinearLayout>

@@ -1,0 +1,85 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Плитка"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размеры плитки"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editTextTileLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Длина в см"/>
+
+    <EditText
+        android:id="@+id/editTextTileWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ширина в см"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Размеры поверхности"
+        android:textSize="18sp"/>
+
+    <EditText
+        android:id="@+id/editTextSurfaceLength"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Длина в см"/>
+
+    <EditText
+        android:id="@+id/editTextSurfaceWidth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ширина в см"/>
+
+    <Button
+        android:id="@+id/calculateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Рассчитать"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Результаты"
+        android:textSize="18sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Площадь поверхности в м²: "
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/textSurfaceArea"
+        android:layout_width="58dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Необходимое количество плитки (ед.): "
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/textTileCount"
+        android:layout_width="52dp"
+        android:layout_height="wrap_content"
+        android:textSize="14sp" />
+</LinearLayout>

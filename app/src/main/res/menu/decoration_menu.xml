@@ -1,0 +1,9 @@
+<!-- decoration_menu.xml -->
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/wallpaper"
+        android:title="Обои"/>
+    <item
+        android:id="@+id/tiles"
+        android:title="Плитка"/>
+</menu>
