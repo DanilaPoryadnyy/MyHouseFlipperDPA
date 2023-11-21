@@ -25,7 +25,7 @@ public class MainFragment extends Fragment {
         Button decorationButton = view.findViewById(R.id.decoration_button);
         decorationButton.setOnClickListener(v -> showPopupMenu(decorationButton));
 
-
+        //44
         return view;
     }
 
