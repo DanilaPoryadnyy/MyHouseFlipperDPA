@@ -54,7 +54,7 @@
         android:id="@+id/editTextLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Длина"
+        android:hint="Длина (метр)"
         android:inputType="numberDecimal"
         android:padding="8dp"
         android:layout_margin="8dp"/>
@@ -63,14 +63,14 @@
         android:id="@+id/editTextWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Ширина"
+        android:hint="Ширина (метр)"
         android:inputType="numberDecimal"
         android:padding="8dp"
         android:layout_margin="8dp"/>
 
     <!-- Кнопка "Рассчитать" -->
     <Button
-        android:id="@+id/calculateButton"
+        android:id="@+id/calculateButtone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Рассчитать"
@@ -86,13 +86,6 @@
         android:layout_margin="16dp"/>
     <!-- Надпись "Площадь поверхности" -->
 
-    <TextView
-        android:id="@+id/squarePrimer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Площадь обрабатываемой поверхности м²: "
-        android:padding="8dp"/>
-
     <!-- TextView для числа площади поверхности -->
     <TextView
         android:id="@+id/squarePrimerNum"
@@ -103,13 +96,14 @@
 
     <!-- Надпись Расход материалов на 1м2 -->
     <TextView
-        android:id="@+id/countPrimerM"
+        android:id="@+id/countPrimerMNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Расход материалов на м²: "
+        android:text=""
         android:padding="8dp"/>
+
     <TextView
-        android:id="@+id/countPrimerMNum"
+        android:id="@+id/countPerM"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text=""
