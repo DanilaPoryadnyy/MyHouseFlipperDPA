@@ -2,53 +2,61 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/back_app">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Плитка"
-        android:textSize="24sp"/>
+        android:textSize="24sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Размеры плитки"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/editTextTileLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Длина в см"/>
+        android:hint="Длина в см"
+        />
 
     <EditText
         android:id="@+id/editTextTileWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Ширина в см"/>
+        android:hint="Ширина в см"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Размеры поверхности"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/editTextSurfaceLength"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Длина в см"/>
+        android:hint="Длина в см"
+        />
 
     <EditText
         android:id="@+id/editTextSurfaceWidth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="numberDecimal"
-        android:hint="Ширина в см"/>
+        android:hint="Ширина в см"
+        />
 
     <Button
         android:id="@+id/calculateButton"
@@ -61,13 +69,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Результаты"
-        android:textSize="18sp"/>
+        android:textSize="18sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Площадь поверхности в м²: "
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textSurfaceArea"
@@ -79,7 +89,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Необходимое количество плитки (ед.): "
-        android:textSize="14sp"/>
+        android:textSize="14sp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textTileCount"

@@ -2,14 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
+    android:orientation="vertical"
+    android:background="@drawable/back_app">
     <!-- Надпись "Краска" сверху посередине -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Краска"
         android:textSize="24sp"
+        android:textColor="@color/white"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
@@ -33,7 +34,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Размеры поверхности"
-        android:textSize="24sp" />
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        android:textColorHint="@color/white"/>
 
     <!-- Поля "Длина в см", "Ширина в см", "Объём банки в мл", "Стоимость банки в руб" -->
     <EditText
@@ -81,6 +84,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Площадь поверхности м²: "
+        android:textColor="@color/white"
         android:padding="8dp"/>
 
     <!-- TextView для числа площади поверхности -->
@@ -97,7 +101,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Объём затраченной краски в мл: "
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <!-- TextView для числа объёма краски -->
     <TextView
@@ -112,7 +117,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Количество банок краски: "
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
     <!-- TextView для числа банок краски -->
 
     <TextView
@@ -128,7 +134,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Стоимость за 1 м² руб: "
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <!-- TextView для числа стоимости за 1м2 -->
     <TextView
@@ -147,7 +154,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Итого за краску:"
-            android:padding="8dp"/>
+            android:padding="8dp"
+            android:textColor="@color/white"/>
 
         <!-- TextView для числа итоговой цены за краску -->
     <TextView
@@ -156,7 +164,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:padding="8dp"
-        android:text="" />
+        android:text=""/>
 
 
 </LinearLayout>

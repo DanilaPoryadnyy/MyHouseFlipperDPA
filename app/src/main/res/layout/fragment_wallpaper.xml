@@ -2,14 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/back_app">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Параметры рулона"
         android:textSize="20sp"
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <!-- Поля для параметров рулона -->
     <EditText
@@ -41,7 +43,8 @@
         android:layout_height="wrap_content"
         android:text="Размеры стен"
         android:textSize="20sp"
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/editWidthWalls"
@@ -73,13 +76,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Количество рулонов: "
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textRollsCountValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 руб"
+        android:text=""
         android:padding="8dp"/>
 
     <TextView
@@ -87,13 +91,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Суммарная стоимость: "
-        android:padding="8dp"/>
+        android:padding="8dp"
+        android:textColor="@color/white"/>
 
     <TextView
         android:id="@+id/textTotalCostValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0 руб"
+        android:text=""
         android:padding="8dp"/>
 
 </LinearLayout>
