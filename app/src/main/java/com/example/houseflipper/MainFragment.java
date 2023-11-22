@@ -1,5 +1,8 @@
 package com.example.houseflipper;
 
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,8 +14,9 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-public class MainFragment extends Fragment {
+import java.util.ArrayList;
 
+public class MainFragment extends Fragment {
     public MainFragment() {
         // Пустой конструктор
     }
@@ -28,6 +32,9 @@ public class MainFragment extends Fragment {
         Button materialsButton = view.findViewById(R.id.materials_button);
         materialsButton.setOnClickListener(v -> showMaterialsMenu(materialsButton));
 
+        Button myRoomsButton = view.findViewById(R.id.my_rooms_button);
+        myRoomsButton.setOnClickListener(v -> loadMyRoomsFragment());
+
         return view;
     }
 
@@ -38,11 +45,7 @@ public class MainFragment extends Fragment {
         popupMenu.setOnMenuItemClickListener(item -> {
             int itemId = item.getItemId();
             // Handle menu item clicks here
-            if (itemId == R.id.paint_consumption) {
-//                loadPaintConsumptionFragment();
-//                return true;
-                return false;
-            } else if (itemId == R.id.primer_consumption) {
+           if (itemId == R.id.primer_consumption) {
                 loadPrimerConsumptionFragment(); // Загрузка фрагмента "Расход грунтовки"
                 return true;
             } else {
@@ -75,6 +78,13 @@ public class MainFragment extends Fragment {
         });
 
         popupMenu.show();
+    }
+
+    private void loadMyRoomsFragment() {
+        requireActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, new MyRoomsFragment())
+                .addToBackStack(null) // Add to back stack if needed
+                .commit();
     }
 
     private void loadPaintConsumptionFragment() {

@@ -19,4 +19,13 @@
         android:layout_centerHorizontal="true"
         android:text="Отделка базовая" />
 
+    <Button
+        android:id="@+id/my_rooms_button"
+        android:layout_width="200sp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/materials_button"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Мои комнаты" />
+
 </RelativeLayout>

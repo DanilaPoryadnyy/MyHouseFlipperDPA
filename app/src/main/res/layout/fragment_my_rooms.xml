@@ -1,0 +1,35 @@
+<!-- fragment_my_rooms.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <!-- Your content for My Rooms fragment -->
+    <ListView
+        android:id="@+id/roomsRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/clearDb"
+        android:layout_below="@+id/addTest"
+        android:layout_marginTop="277dp"
+        android:layout_marginBottom="10dp" />
+    <EditText
+        android:id="@+id/inputBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/addTest"
+        android:text="Input here"/>
+    <Button
+        android:id="@+id/addTest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add"/>
+
+    <Button
+        android:id="@+id/clearDb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="Clear"/>
+
+</RelativeLayout>
