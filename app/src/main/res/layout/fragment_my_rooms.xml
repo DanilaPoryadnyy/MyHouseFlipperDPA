@@ -2,34 +2,38 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@drawable/back_app">
 
     <!-- Your content for My Rooms fragment -->
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/roomsRecyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_width="394dp"
+        android:layout_height="543dp"
         android:layout_above="@+id/clearDb"
         android:layout_below="@+id/addTest"
-        android:layout_marginTop="277dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="83dp"
+        android:layout_marginEnd="5dp"
         android:layout_marginBottom="10dp" />
     <EditText
         android:id="@+id/inputBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/addTest"
-        android:text="Input here"/>
+        android:hint="Введите название комнаты"
+        android:textColorHint="@color/white"/>
+
     <Button
         android:id="@+id/addTest"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Add"/>
+        android:text="Добавить"/>
 
     <Button
         android:id="@+id/clearDb"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Clear"/>
+        android:text="Удалить все комнаты"/>
 
 </RelativeLayout>

@@ -16,13 +16,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MyRoomsFragment extends Fragment {
     private RoomsDBHelper dbHelper;
-    private ArrayAdapter<String> adapter;
-    private ArrayList<String> roomsList;
+    private RecyclerView roomsRecyclerView;
+    private RoomsAdapter adapter;
+    private List<Room> roomsList;
 
     public MyRoomsFragment() {
         // Required empty public constructor
@@ -39,11 +43,12 @@ public class MyRoomsFragment extends Fragment {
         Button clearDatabaseButton = view.findViewById(R.id.clearDb);
         Button addDatabaseButton = view.findViewById(R.id.addTest);
 
-        ListView roomsListView = view.findViewById(R.id.roomsRecyclerView);
+        roomsRecyclerView = view.findViewById(R.id.roomsRecyclerView);
+        roomsRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
 
-        roomsList = getRooms();
-        adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, roomsList);
-        roomsListView.setAdapter(adapter);
+        roomsList = getRooms(); // Получите данные из базы данных
+        adapter = new RoomsAdapter(roomsList);
+        roomsRecyclerView.setAdapter(adapter);
 
         clearDatabaseButton.setOnClickListener(v -> {
             dbHelper.clearDatabase();
@@ -62,50 +67,53 @@ public class MyRoomsFragment extends Fragment {
             }
         });
 
-
         return view;
     }
+
     private void updateRoomsList() {
         roomsList.clear();
         roomsList.addAll(getRooms());
         adapter.notifyDataSetChanged();
     }
+
     @Override
     public void onDestroy() {
         dbHelper.close();
         super.onDestroy();
     }
+
     private void addRoom(String roomName) {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("room_name", roomName);
         db.insert("rooms", null, values);
-
         db.close();
     }
 
-    private ArrayList<String> getRooms() {
-        ArrayList<String> roomsList = new ArrayList<>();
+    private List<Room> getRooms() {
+        List<Room> roomsList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("rooms", new String[]{"room_name"}, null, null, null, null, null);
-
-        if (cursor != null && cursor.getCount() > 0) {
-            int roomNameColumnIndex = cursor.getColumnIndex("room_name");
-
-            if (roomNameColumnIndex > -1) {
-                cursor.moveToFirst();
-                do {
-                    String roomName = cursor.getString(roomNameColumnIndex);
-                    roomsList.add(roomName);
-                } while (cursor.moveToNext());
-            }
-        }
+        Cursor cursor = db.query("rooms", new String[]{"_id", "room_name"}, null, null, null, null, null);
 
         if (cursor != null) {
+            while (cursor.moveToNext()) {
+                int roomIdIndex = cursor.getColumnIndex("_id");
+                int roomNameIndex = cursor.getColumnIndex("room_name");
+
+                // Check if columns exist in the cursor
+                if (roomIdIndex >= 0 && roomNameIndex >= 0) {
+                    int roomId = cursor.getInt(roomIdIndex);
+                    String roomName = cursor.getString(roomNameIndex);
+                    Room room = new Room(roomId, roomName);
+                    roomsList.add(room);
+                }
+            }
             cursor.close();
         }
-        db.close();
 
+        db.close();
         return roomsList;
     }
+
 }
+
