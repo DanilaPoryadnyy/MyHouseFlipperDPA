@@ -1,8 +1,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/paint_consumption"
-        android:title="Расход краски" />
-    <item
         android:id="@+id/primer_consumption"
         android:title="Расход грунтовки" />
 </menu>

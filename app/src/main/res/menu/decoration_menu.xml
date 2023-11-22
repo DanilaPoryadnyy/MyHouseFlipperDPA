@@ -6,4 +6,7 @@
     <item
         android:id="@+id/tiles"
         android:title="Плитка"/>
+    <item
+    android:id="@+id/paint_consumption"
+    android:title="Краска" />
 </menu>

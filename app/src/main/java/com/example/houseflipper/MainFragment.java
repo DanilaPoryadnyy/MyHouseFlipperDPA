@@ -39,8 +39,9 @@ public class MainFragment extends Fragment {
             int itemId = item.getItemId();
             // Handle menu item clicks here
             if (itemId == R.id.paint_consumption) {
-                loadPaintConsumptionFragment();
-                return true;
+//                loadPaintConsumptionFragment();
+//                return true;
+                return false;
             } else if (itemId == R.id.primer_consumption) {
                 loadPrimerConsumptionFragment(); // Загрузка фрагмента "Расход грунтовки"
                 return true;
@@ -64,7 +65,11 @@ public class MainFragment extends Fragment {
             } else if (itemId == R.id.tiles) {
                 loadTilesFragment(); // Загрузка фрагмента "Плитка"
                 return true;
-            } else {
+            } else if (itemId == R.id.paint_consumption) {
+                loadPaintConsumptionFragment(); // Загрузка фрагмента "Плитка"
+                return true;
+            }
+            else {
                 return false;
             }
         });
