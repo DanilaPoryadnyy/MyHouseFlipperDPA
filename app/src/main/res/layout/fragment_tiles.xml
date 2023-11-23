@@ -76,8 +76,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Площадь поверхности в м²: "
-        android:textSize="14sp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:textSize="14sp" />
 
     <TextView
         android:id="@+id/textSurfaceArea"
@@ -97,4 +97,15 @@
         android:layout_width="52dp"
         android:layout_height="wrap_content"
         android:textSize="14sp" />
+    <Spinner
+        android:id="@+id/roomSpinnerTiles"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"/>
+    <Button
+        android:id="@+id/saveButtonTiles"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Сохранить"
+        android:textSize="18sp" />
 </LinearLayout>

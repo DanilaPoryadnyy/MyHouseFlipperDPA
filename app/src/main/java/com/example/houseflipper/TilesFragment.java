@@ -1,19 +1,25 @@
 package com.example.houseflipper;
 
+import android.content.ContentValues;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import java.util.List;
 
 public class TilesFragment extends Fragment {
 
@@ -25,6 +31,8 @@ public class TilesFragment extends Fragment {
     private TextView textTileCount;
 
     private Button calculateButton;
+    private Spinner spinner;
+    RoomsDBHelper roomsDBHelper;
 
     public TilesFragment() {
     }
@@ -42,9 +50,73 @@ public class TilesFragment extends Fragment {
         textTileCount = view.findViewById(R.id.textTileCount);
         calculateButton = view.findViewById(R.id.calculateButton);
 
+
+
+        Button saveButtonTiles = view.findViewById(R.id.saveButtonTiles);
+        saveButtonTiles.setOnClickListener(v ->{
+            try {
+                // ... (ваш существующий код)
+
+                // Получение выбранного объекта Room из Spinner
+                Room selectedRoom = (Room) spinner.getSelectedItem();
+
+                if (selectedRoom != null) {
+                    // Установка значений в выбранный объект Room
+                    String surfaceAreaString = textSurfaceArea.getText().toString();
+                    String tileCountString = textTileCount.getText().toString();
+                    double surfaceArea = Double.parseDouble(surfaceAreaString);
+                    int tileCount = Integer.parseInt((tileCountString));
+                    selectedRoom.setRoomArea(surfaceArea);
+                    selectedRoom.setTilesCount(tileCount);
+
+                    // Обновление данных в базе данных
+                    updateRoomInDatabase(selectedRoom);
+                } else {
+                    // Обработка ситуации, если объект не выбран в Spinner
+                    // Пожалуйста, выберите комнату для сохранения данных
+                }
+            } catch (NumberFormatException e) {
+                // Обработка ошибки при неверном формате числа
+                // Введите корректные данные
+            }
+        });
+
+
+        spinner = view.findViewById(R.id.roomSpinnerTiles); // Инициализация Spinner
+
+        loadRoomsData();
+
         calculateButton.setOnClickListener(v -> calculateTiles());
 
         return view;
+    }
+    private void updateRoomInDatabase(Room room) {
+        SQLiteDatabase db = roomsDBHelper.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put("room_area", room.getRoomArea());
+        values.put("tiles_count", room.getTilesCount());
+
+        String selection = "_id=?";
+        String[] selectionArgs = {String.valueOf(room.getId())};
+
+        db.update("rooms", values, selection, selectionArgs);
+        db.close();
+    }
+    public void loadRoomsData() {
+        roomsDBHelper = new RoomsDBHelper(requireContext()); // Инициализация помощника базы данных
+
+        List<Room> rooms = roomsDBHelper.getAllRooms();
+
+//        // Извлечение имен комнат из объектов Room
+//        List<String> roomNames = new ArrayList<>();
+//        for (Room room : rooms) {
+//            roomNames.add(room.getRoomName());
+//        }
+
+        // Создание ArrayAdapter и установка его в Spinner
+        ArrayAdapter<Room> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, rooms);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
     }
 
     private final TextWatcher textWatcher = new TextWatcher() {
