@@ -7,10 +7,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -24,9 +27,15 @@ import java.util.List;
 
 public class MyRoomsFragment extends Fragment {
     private RoomsDBHelper dbHelper;
-    private RecyclerView roomsRecyclerView;
-    private RoomsAdapter adapter;
-    private List<Room> roomsList;
+    private Spinner roomSpinner;
+    private TextView roomNameVar;
+    private TextView rollsCount;
+    private TextView rollsCost;
+    private TextView tilesCount;
+    private TextView paintCansCount;
+    private TextView paintCost;
+    private TextView primerWeight;
+    private TextView roomArea;
 
     public MyRoomsFragment() {
         // Required empty public constructor
@@ -43,23 +52,29 @@ public class MyRoomsFragment extends Fragment {
         Button clearDatabaseButton = view.findViewById(R.id.clearDb);
         Button addDatabaseButton = view.findViewById(R.id.addTest);
 
-        roomsRecyclerView = view.findViewById(R.id.roomsRecyclerView);
-        roomsRecyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
+        roomSpinner = view.findViewById(R.id.roomSpinner);
 
-        roomsList = getRooms(); // Получите данные из базы данных
-        adapter = new RoomsAdapter(roomsList);
-        roomsRecyclerView.setAdapter(adapter);
+        roomNameVar = view.findViewById(R.id.roomNameVar);
+        rollsCount = view.findViewById(R.id.rollsCount);
+        rollsCost = view.findViewById(R.id.rollsCost);
+        tilesCount = view.findViewById(R.id.tilesCount);
+        paintCansCount = view.findViewById(R.id.paintCansCount);
+        paintCost = view.findViewById(R.id.paintCost);
+        primerWeight = view.findViewById(R.id.primerWeight);
+        roomArea = view.findViewById(R.id.roomArea);
+
+        loadRoomsData();
 
         clearDatabaseButton.setOnClickListener(v -> {
             dbHelper.clearDatabase();
-            updateRoomsList();
+            loadRoomsData();
         });
 
         addDatabaseButton.setOnClickListener(v -> {
             String roomName = inputBox.getText().toString().trim();
             if (!roomName.isEmpty()) {
                 addRoom(roomName);
-                updateRoomsList();
+                loadRoomsData();
                 inputBox.getText().clear(); // Очищаем поле ввода после добавления комнаты
             } else {
                 // Действие при пустой строке
@@ -69,12 +84,47 @@ public class MyRoomsFragment extends Fragment {
 
         return view;
     }
+    public void loadRoomsData() {
+        dbHelper = new RoomsDBHelper(requireContext()); // Инициализация помощника базы данных
 
-    private void updateRoomsList() {
-        roomsList.clear();
-        roomsList.addAll(getRooms());
-        adapter.notifyDataSetChanged();
+        List<Room> rooms = dbHelper.getAllRooms();
+
+        // Создание ArrayAdapter и установка его в Spinner
+        ArrayAdapter<Room> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_item, rooms);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        roomSpinner.setAdapter(adapter);
+
+        // Обработка выбора элемента в Spinner, если нужно что-то выполнить при выборе
+        roomSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // Получение выбранной комнаты
+                Room selectedRoom = (Room) parent.getItemAtPosition(position);
+                try {
+                roomNameVar.setText(String.format("Название: " + selectedRoom.getRoomName()));
+                String one = String.valueOf("Количество рулонов: "+ selectedRoom.getRollsCount());
+                rollsCount.setText(one);
+                String two = String.valueOf("Цена за обои: "+selectedRoom.getTotalRollsCost() + " руб.");
+                rollsCost.setText(two);
+                tilesCount.setText("Количество плитки: " + selectedRoom.getTilesCount());
+                paintCansCount.setText("Количество банок краски:" + selectedRoom.getPaintCansCount());
+                String three = String.valueOf("Цена за краску: " +selectedRoom.getPaintCost() + " руб.");
+                paintCost.setText(three);
+                String four = String.valueOf("Требуется грунтовки: " + selectedRoom.getPrimerWeight() + " кг");
+                primerWeight.setText(four);
+                String five = String.valueOf("Площадь: " + selectedRoom.getRoomArea() + " м2");
+                roomArea.setText(five);
+                }
+                catch (Exception e){}
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // Обработка ситуации, когда ничего не выбрано в Spinner
+            }
+        });
     }
+
 
     @Override
     public void onDestroy() {

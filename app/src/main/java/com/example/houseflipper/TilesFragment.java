@@ -78,7 +78,7 @@ public class TilesFragment extends Fragment {
         int tileCount = (int) Math.ceil(surfaceArea / tileArea);
 
         // Обновление TextView
-        textSurfaceArea.setText(String.format("%.2f", surfaceArea));
+        textSurfaceArea.setText(String.format(String.valueOf(surfaceArea)));
         textTileCount.setText(String.valueOf(tileCount));
         } catch (NumberFormatException e) {
             // Обработка ошибки при неверном формате числа

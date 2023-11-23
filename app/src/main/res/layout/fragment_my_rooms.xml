@@ -5,16 +5,6 @@
     android:background="@drawable/back_app">
 
     <!-- Your content for My Rooms fragment -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/roomsRecyclerView"
-        android:layout_width="394dp"
-        android:layout_height="543dp"
-        android:layout_above="@+id/clearDb"
-        android:layout_below="@+id/addTest"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="83dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="10dp" />
     <EditText
         android:id="@+id/inputBox"
         android:layout_width="match_parent"
@@ -22,6 +12,70 @@
         android:layout_below="@id/addTest"
         android:hint="Введите название комнаты"
         android:textColorHint="@color/white"/>
+
+    <Spinner
+        android:id="@+id/roomSpinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputBox"/>
+
+    <!-- Другие поля для ввода данных о комнате -->
+    <TextView
+        android:id="@+id/roomNameVar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Имя комнаты: "
+        android:layout_below="@id/roomSpinner"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/rollsCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Количество рулонов: "
+        android:layout_below="@id/roomNameVar"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/rollsCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Цена рулонов: "
+        android:layout_below="@id/rollsCount"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/tilesCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Количество плитки: "
+        android:layout_below="@id/rollsCost"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/paintCansCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Количество банок краски: "
+        android:layout_below="@id/tilesCount"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/paintCost"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Цена за краску: "
+        android:layout_below="@id/paintCansCount"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/primerWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Необходимая грунтовка (Кг): "
+        android:layout_below="@id/paintCost"
+        android:layout_marginStart="15dp"/>
+    <TextView
+        android:id="@+id/roomArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Площадь комнаты: "
+        android:layout_below="@id/primerWeight"
+        android:layout_marginStart="15dp"/>
 
     <Button
         android:id="@+id/addTest"
@@ -34,6 +88,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:text="Удалить все комнаты"/>
-
+        android:text="Удалить все комнаты"/>"/>
 </RelativeLayout>
