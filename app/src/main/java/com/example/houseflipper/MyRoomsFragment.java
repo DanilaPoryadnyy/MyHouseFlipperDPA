@@ -86,6 +86,14 @@ public class MyRoomsFragment extends Fragment {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put("room_name", roomName);
+        // Добавление новых полей в базу данных при создании записи о комнате
+        values.put("rolls_count", 0);
+        values.put("total_rolls_cost", 0.0);
+        values.put("tiles_count", 0);
+        values.put("paint_cans_count", 0);
+        values.put("paint_cost", 0.0);
+        values.put("primer_weight", 0.0);
+        values.put("room_area", 0.0);
         db.insert("rooms", null, values);
         db.close();
     }
@@ -93,18 +101,37 @@ public class MyRoomsFragment extends Fragment {
     private List<Room> getRooms() {
         List<Room> roomsList = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.query("rooms", new String[]{"_id", "room_name"}, null, null, null, null, null);
+        Cursor cursor = db.query("rooms", new String[]{"_id", "room_name", "rolls_count", "total_rolls_cost",
+                "tiles_count", "paint_cans_count", "paint_cost", "primer_weight", "room_area"}, null, null, null, null, null);
 
         if (cursor != null) {
             while (cursor.moveToNext()) {
                 int roomIdIndex = cursor.getColumnIndex("_id");
                 int roomNameIndex = cursor.getColumnIndex("room_name");
+                int rollsCountIndex = cursor.getColumnIndex("rolls_count");
+                int totalRollsCostIndex = cursor.getColumnIndex("total_rolls_cost");
+                int tilesCountIndex = cursor.getColumnIndex("tiles_count");
+                int paintCansCountIndex = cursor.getColumnIndex("paint_cans_count");
+                int paintCostIndex = cursor.getColumnIndex("paint_cost");
+                int primerWeightIndex = cursor.getColumnIndex("primer_weight");
+                int roomAreaIndex = cursor.getColumnIndex("room_area");
 
-                // Check if columns exist in the cursor
-                if (roomIdIndex >= 0 && roomNameIndex >= 0) {
+                // Проверяем наличие столбцов в курсоре
+                if (roomIdIndex >= 0 && roomNameIndex >= 0 && rollsCountIndex >= 0 &&
+                        totalRollsCostIndex >= 0 && tilesCountIndex >= 0 && paintCansCountIndex >= 0 &&
+                        paintCostIndex >= 0 && primerWeightIndex >= 0 && roomAreaIndex >= 0) {
                     int roomId = cursor.getInt(roomIdIndex);
                     String roomName = cursor.getString(roomNameIndex);
-                    Room room = new Room(roomId, roomName);
+                    int rollsCount = cursor.getInt(rollsCountIndex);
+                    double totalRollsCost = cursor.getDouble(totalRollsCostIndex);
+                    int tilesCount = cursor.getInt(tilesCountIndex);
+                    int paintCansCount = cursor.getInt(paintCansCountIndex);
+                    double paintCost = cursor.getDouble(paintCostIndex);
+                    double primerWeight = cursor.getDouble(primerWeightIndex);
+                    double roomArea = cursor.getDouble(roomAreaIndex);
+
+                    Room room = new Room(roomId, roomName, rollsCount, totalRollsCost, tilesCount,
+                            paintCansCount, paintCost, primerWeight, roomArea);
                     roomsList.add(room);
                 }
             }

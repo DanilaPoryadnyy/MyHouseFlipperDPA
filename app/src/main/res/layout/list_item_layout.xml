@@ -8,19 +8,64 @@
         android:id="@+id/textId"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/white"/>
-
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="5dp"
+        android:layout_marginEnd="20dp"/>
     <TextView
         android:id="@+id/textRoomName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@color/white"/>
-
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
     <TextView
-        android:id="@+id/textRoomName"
+        android:id="@+id/textRollsCount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:textColor="@color/white"/>
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textTotalRollsCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textTileCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textPaintCansCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textPaintCost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textPrimerWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+    <TextView
+        android:id="@+id/textRoomArea"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:textColor="@color/white"
+        android:layout_marginEnd="20dp"/>
+
 </LinearLayout>
